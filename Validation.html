@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<title>Form Validation</title>
+</head>
+<body>
+				<div class="head" align="center">
+								<h1>Javascript Form Validation</h1>
+								
+								<p class="brand">by Pranav</p>
+								<hr>
+								<h2>Form</h2>
+				</div>
+			<br>
+			
+				<form>
+								<label>Name</label><br>
+								<input type="name" id="name" placeholder="eg. Rahul Mehera" onChange="validnm()" required/><label id="nlabel" style="color:red; visibility:hidden;"> Invalid Name</label>
+								<br><br>
+								
+								<label>Email</label><br>
+								<input type="email" id="email" placeholder="eg. myname@mymail.com" onChange="validem()" required/><label id="elabel" style="color:red; visibility:hidden;"> Invalid Email</label>
+								<br><br>
+								
+								<label>Contact no.</label><br>
+								<input type="tel" id="mobile" placeholder="eg. 9876543210" onChange="validmo()" required/><label id="mlabel" style="color:red; visibility:hidden;"> Invalid Mobile No.</label>
+								<br><br>
+								
+								<label>Address</label><br>
+								<textarea onchange="validadd()" placeholder="eg. 244, Flig Lane." id="add" required/></textarea><label id="alabel" style="color:red; visibility:hidden;"> Invalid Address</label><br><br>
+								<input type="submit">
+				</form>
+</body>
+<script>
+				function validnm(){
+								var ntext = document.getElementById("name").value;
+								var regn = /^[a-zA-Z]{2,60}$/;
+								if(regn.test(ntext)){
+												
+												document.getElementById('name').style.border="2px solid green";
+										document.getElementById('nlabel').style.visibility="hidden";	
+										
+								}
+				else{
+											document.getElementById('name').style.border="2px solid red";
+											document.getElementById('nlabel').style.visibility="visible";
+											
+							}
+				}
+				
+				
+				/* email validation */
+				function validem(){
+				var etext=document.getElementById("email").value;
+								var regx = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+)(\.)([a-z]{2,8})(.[a-z]{2,8})?$/;
+							if (regx.test(etext)){
+											document.getElementById('email').style.border="2px solid green";
+										document.getElementById('elabel').style.visibility="hidden";	
+										
+							}
+							else{
+											document.getElementById('email').style.border="2px solid red";
+											document.getElementById('elabel').style.visibility="visible";
+											
+							}
+				}
+	
+				
+				function validmo(){
+				var mtext=document.getElementById("mobile").value;
+								var regh = /^[7-9][0-9]{9}$/;
+							if (regh.test(mtext)){
+											document.getElementById('mobile').style.border="2px solid green";
+										document.getElementById('mlabel').style.visibility="hidden";	
+										
+							}
+							else{
+											document.getElementById('mobile').style.border="2px solid red";
+											document.getElementById('mlabel').style.visibility="visible";
+											
+							}
+				}
+				
+				
+				
+				function validadd(){
+				var mtext=document.getElementById("add").value;
+								var regh = /^[a-zA-Z0-9\,.-]{5,200}$/;
+							if (regh.test(mtext)){
+											document.getElementById('add').style.border="2px solid green";
+										document.getElementById('alabel').style.visibility="hidden";	
+										
+							}
+							else{
+											document.getElementById('add').style.border="2px solid red";
+											document.getElementById('alabel').style.visibility="visible";
+											
+							}
+				}
+				
+				
+			
+</script>
+</html>
